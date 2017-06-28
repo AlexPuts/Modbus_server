@@ -251,9 +251,9 @@ void MainWindow::on_tableWidget_cellChanged(int row, int column)/*this function 
     bool ok = true;
     if(modbusDevice->state() == QModbusDevice::ConnectedState){
         ok = modbusDevice->setData(QModbusDataUnit::InputRegisters,
-                              row*10 + column, ui->tableWidget->item(row,column)->text().toInt(&ok, 16));
+                              row*10 + column, ui->tableWidget->item(row,column)->text().toInt(&ok, 10));
         ok = modbusDevice->setData(QModbusDataUnit::HoldingRegisters,
-                              row*10 + column, ui->tableWidget->item(row,column)->text().toInt(&ok, 16));
+                              row*10 + column, ui->tableWidget->item(row,column)->text().toInt(&ok, 10));
     }
     if (!ok)
         statusBar()->showMessage(tr("Could not set register: ") + modbusDevice->errorString(),
