@@ -177,7 +177,9 @@ void MainWindow::on_connectButton_clicked() /*This function catches "connect" bu
         } else {
             ui->actionConnect->setEnabled(false);
             ui->actionDisconnect->setEnabled(true);
-            statusBar()->showMessage(tr("Connected") , 0);
+            const QString status_tcp = "Connected     " + ui->portEdit->text();
+            statusBar()->showMessage(status_tcp , 0);
+
         }
     } else {
         modbusDevice->disconnectDevice();
@@ -260,5 +262,6 @@ void MainWindow::on_tableWidget_cellChanged(int row, int column)/*this function 
                                  0);
 
 }
+
 
 /*thanks for reading*/
